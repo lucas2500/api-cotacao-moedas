@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "1b844a4a-6e69-4250-a43b-b4efdcea541e",
+		"name": "API COTAÇÃO DE MOEDAS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cotação de moedas",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"BRL\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://economia.awesomeapi.com.br/json/all/USD-BRL",
+					"protocol": "https",
+					"host": [
+						"economia",
+						"awesomeapi",
+						"com",
+						"br"
+					],
+					"path": [
+						"json",
+						"all",
+						"USD-BRL"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
